@@ -1,0 +1,16 @@
+[
+{
+  "modid": "romajichat",
+  "name": "RomajiChat",
+  "description": "Minecraft's mod translates romaji messages sent by players into Japanese.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["altair"],
+  "credits": "This software includes the work that is distributed in the Apache License 2.0",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

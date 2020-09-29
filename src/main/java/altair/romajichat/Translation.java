@@ -7,12 +7,14 @@ import java.util.function.Consumer;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
+import com.google.gson.JsonSyntaxException;
 import com.moji4j.MojiConverter;
 
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.ResponseBody;
+import org.apache.commons.codec.net.URLCodec;
 
 class Translation {
 	private static final ExecutorService ES = Executors.newWorkStealingPool();
@@ -38,7 +40,7 @@ class Translation {
 			if (url == null) {
 				return sourceText;
 			}
-			url.newBuilder()
+			url = url.newBuilder()
 					.addQueryParameter("langpair", "ja-Hira|ja")
 					.addQueryParameter("text", sourceText)
 					.build();
@@ -60,7 +62,7 @@ class Translation {
 			}
 
 			return builder.toString();
-		} catch (IOException e) {
+		} catch (IOException|JsonSyntaxException e) {
 			return sourceText;
 		}
 	}
